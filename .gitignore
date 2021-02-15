@@ -1,2 +1,5 @@
 // Ignore API Key
 config.js
+
+// Ignore .DS_Store
+.DS_Store
