@@ -20,35 +20,28 @@ let baseMaps = {
 
 // Create the map object with center, zoom level, and default layer.
 let map = L.map('mapid', {
-    center: [43.7, -79.3],
-    zoom: 2,
-    layers: [satelliteStreets]
+    center: [43.7, -79.35],
+    zoom: 11,
+    layers: [streets]
 })
 // Pass our map layers into our layers control and add the layers control to the map.
 L.control.layers(baseMaps).addTo(map);
 
-// Accessing the airport GeoJSON URL (Add this after the base map)
-let torontoData = "https://raw.githubusercontent.com/jayjohnson526/Mapping_Earthquakes2/Mapping_GeoJSON_Linestrings/mapping_geoJSON_linestrings/static/js/torontoRoutes.json";
+
+// Accessing the GeoJSON URL (Add this after the base map)
+let torontoHoods = "https://raw.githubusercontent.com/jayjohnson526/Mapping_Earthquakes2/Mapping_GeoJSON_Polygons/mapping_geoJSON_polygons/static/js/torontoNeighborhoods.json";
 
 // Grabbing airport GeoJSON data
-d3.json(torontoData).then(function(data) {
+d3.json(torontoHoods).then(function(data) {
     console.log(data);
-// Add popup markers for the airports
-L.geoJson(data).addTo(map);
+// Add popup markers for the neighborhoods
+L.geoJson(data, {
+    fillColor: "#ffffa1",
+    fillOpacity: 0.5,
+    weight: 1,
+    onEachFeature: function(feature, layer) {
+        console.log(layer);
+        layer.bindPopup("<h3>" + "Neighborhood: " + feature.properties.AREA_NAME + "</h3>");
+    }
+}).addTo(map);
 });
-
-/*
-// Grabbing airport GeoJSON data
-d3.json(airportData).then(function(data) {
-        console.log(data);
-    // Add popup markers for the airports
-    L.geoJson(data, {
-        onEachFeature: function(feature, layer) {
-            console.log(layer);
-            layer.bindPopup("<h2>" + "Airport Code: " + feature.properties.faa + "</h2>"
-            + "<hr>"
-            + "<h3>" + "Airport Name: " + feature.properties.name + "</h3>");
-        }
-    }).addTo(map);
-});
-*/
