@@ -34,3 +34,7 @@ The map also provides the option to change the basemap style. The "Streets" styl
 **Satellite Base Map**
 ![](Earthquake_Challenge/static/images/satellite_map.png)
 
+## Resources
+* [Mapbox](https://www.mapbox.com/)
+* [USGS Earthquake Data](https://www.usgs.gov/natural-hazards/earthquake-hazards/earthquakes)
+
