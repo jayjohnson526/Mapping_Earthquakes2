@@ -21,7 +21,7 @@ You can also toggle the option to visualize tectonic plates by selecting or dese
 **Map with Tectonic Plates**
 ![](Earthquake_Challenge/static/images/tectonic_plates.png)
 
-**Map without Tectonig Plates**
+**Map without Tectonic Plates**
 ![](Earthquake_Challenge/static/images/no_tectonic_plates.png)
 
 
